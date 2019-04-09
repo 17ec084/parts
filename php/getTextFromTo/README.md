@@ -1,5 +1,6 @@
 # getTextFromTo
 テキストに含まれる開始文字列と終了文字列を指定し、テキスト中で開始文字列と終了文字列に囲まれた最初の文字列を取り出す  
+開始文字列と終了文字列はマルチバイト未対応
 
 ## 例
 
@@ -7,26 +8,26 @@
 
 ```php
 <?php
-print getTextFromTo("私は尿管結石になったことがある。そして私は団体の役員をになった(担った)こともある。","私は","になった",true);
+print getTextFromTo("I have a pen, I have a pineapple, uh, PPAP","have a",",",true);
 ```
 
 このプログラムを実行すると、次のように出力される。
 
 ```
-私は尿管結石になった
+have a pen,
 ```
 
 例2
 
 ```php
 <?php
-print getTextFromTo("私は尿管結石になったことがある。そして私は団体の役員をになった(担った)こともある。","私は","になった",false);
+print getTextFromTo("I have a pen, I have a pineapple, uh, PPAP","have a",",",false);
 ```
 
 このプログラムを実行すると、次のように出力される。
 
 ```
-尿管結石
+pen
 ```
 
 両者の違いは、開始文字列や終了文字列が表示されるか否かである。即ち、第4引数は開始文字列および終了文字列の出力の有無を示す。
