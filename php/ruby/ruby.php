@@ -40,4 +40,13 @@ else
     }
 
 
- 
+        function formatChangeRuby($text)
+        {
+            while(strpos($text,'<hirata type="ruby">')!==false)
+            {
+                $hirataText=getTextFromTo($test,'<hirata type="ruby">','</hirata>');//未実装
+                //最初の<hirata>タグ内の文字列を抽出
+                $kanji=getTextFromTo($test,)
+
+            }
+        }
