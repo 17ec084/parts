@@ -53,8 +53,9 @@ else
     {
         while(strpos($text,'<hirata type="ruby">')!==false)
         {
+            $hirataTextTmp=getTextFromTo($text,'<hirata type="ruby">','</hirata>',true);
             $hirataText=getTextFromTo($text,'<hirata type="ruby">','</hirata>',false);
-            //最初の<hirata>タグ内の文字列を抽出
+            //最初の<hirata>タグ(及びそ)の内側の文字列を抽出
 
             while(strpos($hirataText, '[')!==false)
             {
@@ -89,7 +90,7 @@ else
                 $hirataText = str_replace_once($yomigana, $replace, $hirataText, 0);
             }   
 
-            $text = $hirataText;
+            $text = str_replace_once($hirataTextTmp, $hirataText, $text, 0);
 
         }
 
