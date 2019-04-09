@@ -18,7 +18,7 @@ if($ready)
 }
 else
 {
-    print 'error: textとrubyをGET送信してください。<br>rubyはfalseまたはtrueを値としてください。<br>サポートは<a href="https://github.com/17ec084/parts/tree/master/ruby">こちら</a>。'
+    print 'error: textとrubyをGET送信してください。<br>rubyはfalseまたはtrueを値としてください。<br>サポートは<a href="https://github.com/17ec084/parts/tree/master/php/ruby">こちら</a>。'
 }
 
 
