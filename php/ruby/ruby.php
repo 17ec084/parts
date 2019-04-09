@@ -38,13 +38,12 @@ else
 
     function rubyCut($text)
     {
-        $text=str_replace('<ruby>','',$text);
-        $text=str_replace('</ruby>','',$text);
-        $text=str_replace('<rb>','',$text);
-        $text=str_replace('</rb>','',$text);
-        $text=str_replace(getTextFromTo($text,'<rp>','</rp>',true),'',$text);
-        $text=str_replace(getTextFromTo($text,'<rt>','</rt>',true),'',$text); 
-
+        $text=preg_replace("/(\\\r\\\n|\\\r|\\\n|\\\t| )*<ruby>(\\\r\\\n|\\\r|\\\n|\\\t| )*/", '', $text);
+        $text=preg_replace("/(\\\r\\\n|\\\r|\\\n|\\\t| )*<\/ruby>(\\\r\\\n|\\\r|\\\n|\\\t| )*/", '', $text);
+        $text=preg_replace("/(\\\r\\\n|\\\r|\\\n|\\\t| )*<rb>(\\\r\\\n|\\\r|\\\n|\\\t| )*/", '', $text);
+        $text=preg_replace("/(\\\r\\\n|\\\r|\\\n|\\\t| )*<\/rb>(\\\r\\\n|\\\r|\\\n|\\\t| )*/", '', $text);
+        $text=preg_replace("/(\\\r\\\n|\\\r|\\\n|\\\t| )*<rp>([^<]*)<\/rp>(\\\r\\\n|\\\r|\\\n|\\\t| )*/", '', $text);
+        $text=preg_replace("/(\\\r\\\n|\\\r|\\\n|\\\t| )*<rt>([^<]*)<\/rt>(\\\r\\\n|\\\r|\\\n|\\\t| )*/", '', $text);
         return $text;
     }
 
