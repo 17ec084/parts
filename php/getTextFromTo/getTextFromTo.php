@@ -3,7 +3,7 @@
 function getTextFromTo($text, $start, $end, $printStartEnd)
 {
     $startLen = strlen($start);
-    $endLen = strlen($end);
+    $endLen = strlen($end); 
 
     if( ($pos=strpos($text, $start))===false )
     {
