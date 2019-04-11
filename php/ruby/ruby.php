@@ -16,7 +16,7 @@ function ruby($text, $ruby)
         $text=formatChangeRuby($text);
     }
 
-    if($ruby)
+    if(!$ruby)
     {
         $text=rubyCut($text);
     }
