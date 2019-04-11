@@ -9,32 +9,19 @@ include "include/str_replace_once.php";
 
 <?php
 
-$ready=isset($_GET['text']) && isset($_GET['ruby']);
-
-$rubyReady=$_GET['ruby']=='false' || $_GET['ruby']=='true';
-
-$ready=($ready && $rubyReady);
-
-if($ready)
+function ruby($text, $ruby)
 {
-    $text=$_GET['text'];
-
     if(strpos($text,'<hirata type="ruby">')!==false)
     {
         $text=formatChangeRuby($text);
     }
 
-    if($_GET['ruby']!='true')
+    if($ruby)
     {
         $text=rubyCut($text);
     }
-    print $text;
+    return $text;
 }
-else
-{
-    print 'error: textとrubyをGET送信してください。<br>rubyはfalseまたはtrueを値としてください。<br>サポートは<a href="https://github.com/17ec084/parts/tree/master/php/ruby">こちら</a>。';
-}
-
 
     function rubyCut($text)
     {
