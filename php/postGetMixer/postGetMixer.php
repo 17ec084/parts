@@ -22,7 +22,7 @@ function postGetMixer($getPrioritized)
         }
         else
         {
-            $res+= array($post => $_GET[$post]);
+            $res+= array($post => $_POST[$post]);
         }
     }
 
